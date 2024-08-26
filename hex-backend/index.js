@@ -1,14 +1,27 @@
-const http = require('node:http');
+// connecting to mongoose (mongo)
+const connectToMongo = require ('./db')
+connectToMongo();
 
-const hostname = '127.0.0.1';
-const port = 3000;
+// creating a express server
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, World!\n');
-});
+// cors
+var cors = require('cors')
+app.use(cors())
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+// middleware
+app.use(express.json())
+app.get('/', (req, res) => {
+  res.send('<h1>Hello World!<h1>')
+})
+
+
+// availaible routes (Routes are handled through express-router)
+app.use('/api/auth' , require ('./routes/auth'))
+
+
+app.listen(port, () => {
+  console.log(` app listening on port ${port}`)
+})
