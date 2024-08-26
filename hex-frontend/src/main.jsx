@@ -9,6 +9,7 @@ import {
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import Login from './components/Dashboard/Login.jsx';
 import SignUp from './components/Dashboard/SignUp.jsx';
+import MultiStepForm from './components/Dashboard/Form/MultiStepForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,12 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "./components/Dashboard/Form/MultiStepForm.jsx",
+    element: <MultiStepForm />
   }
+
 ]);
 
 createRoot(document.getElementById('root')).render(
