@@ -116,7 +116,7 @@ export default function SignUp() {
                 </div>
                 <p className="text-sm font-light text-gray-500">
                   Already have an account?
-                  <Link to="../login" className="font-medium text-primary-600 hover:underline">
+                  <Link to="/login" className="font-medium text-primary-600 hover:underline">
                     Login
                   </Link>
                 </p>
