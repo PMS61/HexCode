@@ -1,0 +1,11 @@
+#map {
+    width: 1000px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.fa-custom-icon {
+    font-size: 48px;
+    color: #ff4500;
+    margin: 0;
+}
