@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Dashboard from './components/Dashboard/Dashboard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/form",
     element: <div>Hello world!</div>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   }
 ]);
 
