@@ -14,8 +14,12 @@ const LocationInfo = ({ formData, handleChange }) => {
         <input type="text" name="specificAddress" value={formData.specificAddress} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>GIS Coordinates</label>
-        <input type="text" name="gisCoordinates" value={formData.gisCoordinates} onChange={handleChange} />
+        <label>Latitude (use https://www.maps.ie/coordinates.html to get Latitude and Longitude)</label>
+        <input type="text" name="Latitude" value={formData.Latitude} onChange={handleChange} />
+
+        <label>Longitude</label>
+        <input type="text" name="Longitude" value={formData.Longitude} onChange={handleChange} />
+
       </div>
       <div className="form-group">
         <label>Affected Area (in sq. meters or km)</label>
