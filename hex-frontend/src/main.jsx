@@ -7,9 +7,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Dashboard from './components/Dashboard/Dashboard.jsx';
-import Login from './components/Login/Login.jsx';
-import SignUp from './components/Login/SignUp.jsx';
-import MultiStepForm from './components/Form/MultiStepForm.jsx';
+import Login from './components/Dashboard/Login.jsx';
+import Map from './components/Dashboard/Map.jsx';
+import SignUp from './components/Dashboard/SignUp.jsx';
+import MultiStepForm from './components/Dashboard/Form/MultiStepForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,6 @@ const router = createBrowserRouter([
     path: "/form",
     element: <MultiStepForm />
   }
-
 ]);
 
 createRoot(document.getElementById('root')).render(
