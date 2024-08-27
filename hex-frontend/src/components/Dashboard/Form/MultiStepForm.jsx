@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BasicInfo from './BasicInfo';
 import LocationInfo from './LocationInfo';
 import Timeline from './Timeline';
+import './style.css'
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);

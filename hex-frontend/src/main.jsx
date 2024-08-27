@@ -25,7 +25,7 @@ const router = createBrowserRouter([
     element: <Dashboard />,
   },
   {
-    path: "./components/Dashboard/Form/MultiStepForm.jsx",
+    path: "/form",
     element: <MultiStepForm />
   }
 
