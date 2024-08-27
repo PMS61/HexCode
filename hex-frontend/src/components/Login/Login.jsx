@@ -22,7 +22,7 @@ export default function Login() {
     if (json.authToken) {
       // save the auth token and redirect
       console.log("Login Success");
-      localStorage.setItem('token', json.authToken);
+      localStorage.setItem('authToken', json.authToken);
       navigate('/dashboard');
     } else {
       console.log("Login Failed");
