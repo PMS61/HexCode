@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 
 // availaible routes (Routes are handled through express-router)
 app.use('/api/auth' , require ('./routes/auth'))
+app.use('/api/projects' , require ('./routes/project'))
 
 
 app.listen(port, () => {

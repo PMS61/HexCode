@@ -11,7 +11,7 @@ const BasicInfo = ({ formData, handleChange }) => {
       </div>
       <div className="form-group">
         <label>Project ID</label>
-        <input type="text" name="projectId" value={formData.projectId} readOnly />
+        <input type="text" name="projectId" value={formData.projectId} onChange={handleChange}/>
       </div>
       <div className="form-group">
         <label>Project Type</label>
