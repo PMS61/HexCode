@@ -39,6 +39,7 @@ const Map = ({ latitude = 19.02217175, longitude = 72.85620391516045, zoomLevel 
     }, [latitude, longitude, zoomLevel, locationName]);
 
     return <div id="map" style={{ width: width, height: height, margin: '0 auto' }}></div>;
+    return <div id="map" style={{ width: width, height: height, margin: '0 auto' }}></div>;
 };
 
 export default Map;
