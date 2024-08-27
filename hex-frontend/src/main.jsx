@@ -10,8 +10,13 @@ import Dashboard from './components/Dashboard/Dashboard.jsx';
 import Login from './components/Dashboard/Login.jsx';
 import SignUp from './components/Dashboard/SignUp.jsx';
 import MultiStepForm from './components/Dashboard/Form/MultiStepForm.jsx';
+import Landing from './components/Landing/Landing.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
   {
     path: "/login",
     element: <Login />,
