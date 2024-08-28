@@ -22,9 +22,9 @@ const Dashboard = () => {
                 <span className="sr-only">Open sidebar</span>
                 <Menu className="w-6 h-6" />
               </button>
-              <a href="https://flowbite.com" className="flex ms-2 md:me-24">
-                <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 me-3" alt="FlowBite Logo" />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">Flowbite</span>
+              <a href="" className="flex ms-2 md:me-24">
+                <img src="" className="h-8 me-3" alt="FlowBite Logo" />
+                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">HexCode</span>
               </a>
             </div>
             <div className="flex items-center">
@@ -44,7 +44,7 @@ const Dashboard = () => {
                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform translate-y-1" id="dropdown-user">
                       <div className="px-4 py-3">
                         <p className="text-sm text-gray-900">PMS</p>
-                        <p className="text-sm font-medium text-gray-900 truncate">neil.sims@flowbite.com</p>
+                        <p className="text-sm font-medium text-gray-900 truncate">pms</p>
                       </div>
                       <ul className="py-1">
                         <li>
