@@ -12,6 +12,7 @@ import Map from './components/Dashboard/Map.jsx';
 import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import Landing from './components/Landing/Landing.jsx';
+import QueryForum from './components/QueryForum/QueryForum.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <Map />
+  },
+  {
+    path: "/queryforum",
+    element: <QueryForum />
   }
 ]);
 
