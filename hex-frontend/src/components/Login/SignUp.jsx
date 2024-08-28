@@ -29,7 +29,7 @@ export default function SignUp() {
     if (json.authToken) {
       // save the auth token and redirect
       console.log("SignUp Success");
-      localStorage.setItem('token', json.authToken);
+      localStorage.setItem('authToken', json.authToken);
       navigate('/dashboard');
     } else {
       console.log("Sign Up Failed");
