@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, Grid, PieChart } from 'lucide-react';
 
-
 const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -9,8 +8,17 @@ const Dashboard = () => {
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   const toggleProfile = () => setProfileOpen(!profileOpen);
 
+  // Dummy data for ongoing projects
+  const projects = [
+    { name: 'Project Alpha', category: 'Software', location: 'New York', status: 'In Progress' },
+    { name: 'Project Beta', category: 'Infra', location: 'San Francisco', status: 'Completed' },
+    { name: 'Project Gamma', category: 'Software', location: 'Chicago', status: 'Pending' },
+    { name: 'Project Delta', category: 'Consulting', location: 'Austin', status: 'In Progress' },
+    { name: 'Project Epsilon', category: 'Software', location: 'Seattle', status: 'Not Started' }
+  ];
+
   return (
-    <div>
+    <div className="bg-white min-h-screen">
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
@@ -23,7 +31,7 @@ const Dashboard = () => {
                 <Menu className="w-6 h-6" />
               </button>
               <a href="" className="flex ms-2 md:me-24">
-                <img src="" className="h-8 me-3" alt="FlowBite Logo" />
+                <img src="" className="h-8 me-3" alt="" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">HexCode</span>
               </a>
             </div>
@@ -33,12 +41,12 @@ const Dashboard = () => {
                   <button
                     onClick={toggleProfile}
                     type="button"
-                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    className="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300"
                     aria-expanded={profileOpen}
                     aria-controls="dropdown-user"
                   >
                     <span className="sr-only">Open user menu</span>
-                    <img className="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
+                    <img className="w-8 h-8 rounded-full" src="" alt="user photo" />
                   </button>
                   {profileOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform translate-y-1" id="dropdown-user">
@@ -92,64 +100,41 @@ const Dashboard = () => {
         </div>
       </aside>
 
-      <main className="pt-20 pl-80 pr-60">
-     
-        <div className="flex flex-col mt-6">
-          <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-              <div className="overflow-hidden border-b border-gray-200 rounded-md shadow-md">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th>
-                      <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Type</th>
-                      <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Status</th>
-                      <th scope="col" className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Location</th>
-                      <th scope="col" className="relative px-6 py-3">
-                        <span className="sr-only">Edit</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <tr key={i} className="transition-all hover:bg-gray-100 hover:shadow-lg">
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="flex-shrink-0 w-10 h-10">
-                              <img
-                                className="w-10 h-10 rounded-full"
-                                src=""
-                                alt=""
-                              />
-                            </div>
-                            <div className="ml-4">
-                              <div className="text-sm font-medium text-gray-900">SIH</div>
-                              <div className="text-sm text-gray-500"></div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-900"></div>
-                          <div className="text-sm text-gray-500">Infrastructure</div>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <span className="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">VJTI</td>
-                        <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                          <a href="#" className="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+      <main className="ml-0 sm:ml-64 p-4 pt-24">
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <th scope="col" className="px-6 py-3">Project Name</th>
+                <th scope="col" className="px-6 py-3">Category</th>
+                <th scope="col" className="px-6 py-3">Location</th>
+                <th scope="col" className="px-6 py-3">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {projects.map((project, index) => (
+                <tr key={index} className="bg-white border-b">
+                  <td className="px-6 py-4">{project.name}</td>
+                  <td className="px-6 py-4">{project.category}</td>
+                  <td className="px-6 py-4">{project.location}</td>
+                  <td className="px-6 py-4">
+                    <span
+                      className={`px-2 py-1 text-xs font-semibold rounded-full ${
+                        project.status === 'Completed' ? 'bg-green-100 text-green-800' :
+                        project.status === 'In Progress' ? 'bg-yellow-100 text-yellow-800' :
+                        project.status === 'Pending' ? 'bg-orange-100 text-orange-800' :
+                        'bg-gray-100 text-gray-800'
+                      }`}
+                    >
+                      {project.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </main>
-
-    
     </div>
   );
 };
