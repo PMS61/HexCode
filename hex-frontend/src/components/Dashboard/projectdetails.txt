@@ -1,0 +1,58 @@
+//original code
+
+
+import React from "react"
+import Map from "./Map"
+
+export default function ProjectDetails() {
+  return (
+    <div className="bg-background rounded-lg border">
+      <header className="p-6 border-b">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Project Revamp</h1>
+            <p className="text-muted-foreground">Redesign and rebuild the company website</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex flex-col items-end">
+              <p className="text-sm text-muted-foreground">Start Date</p>
+              <p className="font-medium">Jan 1, 2023</p>
+            </div>
+            <div className="flex flex-col items-end">
+              <p className="text-sm text-muted-foreground">End Date</p>
+              <p className="font-medium">Mar 31, 2023</p>
+            </div>
+            <div className="flex flex-col items-end">
+              <p className="text-sm text-muted-foreground">Project Type</p>
+              <p className="font-medium">Website Redesign</p>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div className="p-6 grid gap-8">
+        <section>
+          <h2 className="text-xl font-bold">Project Goals</h2>
+          <p className="text-muted-foreground">
+            The main goals of this project are to create a modern, responsive, and user-friendly website that better
+            represents the company's brand and services.
+          </p>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold">Deliverables</h2>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>New homepage design</li>
+            <li>Revamped product pages</li>
+            <li>Improved customer support section</li>
+            <li>Updated branding and visual identity</li>
+          </ul>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold">Timeline</h2>
+          <div className="aspect-[4/3] w-full">
+            <Map className="w-full h-full" />
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}

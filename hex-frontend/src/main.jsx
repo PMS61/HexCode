@@ -14,6 +14,7 @@ import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import Landing from './components/Landing/Landing.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
 import { Scheduler } from './components/Dashboard/scheduler.jsx';
+import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
   {
     path: "/scheduler",
     element: <Scheduler />
+  },
+  {
+    path: "/projectdetails",
+    element: <ProjectDetails />
   }
 ]);
 
