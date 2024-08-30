@@ -137,4 +137,29 @@ router.delete('/deleteProject/:id', fetchUser, async (req, res) => {
     }
 });
 
+// ROUTE 5: Fetch a specific project by ID GET: /api/projects/fetchProject/:id Login Required
+router.get('/fetchProject/:id', fetchUser, async (req, res) => {
+    try {
+        // Find the project by ID
+        const project = await Project.findById(req.params.id);
+
+        // Check if the project exists
+        if (!project) {
+            return res.status(404).json({ error: "Project not found" });
+        }
+
+        // Verify user ownership
+        if (project.userId.toString() !== req.user.id) {
+            return res.status(401).json({ error: "Not authorized" });
+        }
+
+        // Return the project details
+        res.json(project);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({ error: "Internal error occurred" });
+    }
+});
+
+
 module.exports = router;
