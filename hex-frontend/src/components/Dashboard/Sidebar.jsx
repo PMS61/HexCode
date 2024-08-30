@@ -26,7 +26,7 @@ const Sidebar = () => {
                 <Menu className="w-6 h-6" />
               </button>
               <a href="" className="flex ms-2 md:me-24">
-                <img src="" className="h-8 me-3" alt="" />
+              <img src="src/assets/logo.png" alt="Logo" className="h-8 w-8" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">HexCode</span>
               </a>
             </div>
@@ -85,9 +85,9 @@ const Sidebar = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+              <a href="/queryforum" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
                 <PieChart className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
-                <span className="flex-1 ms-3 whitespace-nowrap">Inbox</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">Forum</span>
                 <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span>
               </a>
             </li>

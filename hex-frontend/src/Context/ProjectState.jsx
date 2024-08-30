@@ -15,11 +15,12 @@ const ProjectState = (props) => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": localStorage.getItem('token')
+                "auth-token": localStorage.getItem('authToken')
             }
         });
         let json = await response.json();
         setProjects(json);
+        return json;
     };
 
     // Fetch a specific project by ID
