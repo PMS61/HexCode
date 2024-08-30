@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
+import LocationSearch from './Search';
 
 const LocationInfo = ({ formData, handleChange }) => {
+  const handleLocationSelect = (location) => {
+    handleChange({
+      target: { name: 'specificAddress', value: location.name }
+    });
+    handleChange({
+      target: { name: 'latitude', value: location.lat }
+    });
+    handleChange({
+      target: { name: 'longitude', value: location.lon }
+    });
+  };
+
   return (
     <>
       <h2>Location Information</h2>
@@ -16,6 +29,7 @@ const LocationInfo = ({ formData, handleChange }) => {
       </div>
       <div className="form-group">
         <label>Specific Address/Area</label>
+        <LocationSearch onLocationSelect={handleLocationSelect} />
         <input
           type="text"
           name="specificAddress"
@@ -24,7 +38,7 @@ const LocationInfo = ({ formData, handleChange }) => {
         />
       </div>
       <div className="form-group">
-        <label>Latitude (use https://www.maps.ie/coordinates.html to get Latitude and Longitude)</label>
+        <label>Latitude</label>
         <input
           type="text"
           name="latitude"
@@ -53,4 +67,6 @@ const LocationInfo = ({ formData, handleChange }) => {
   );
 };
 
+
 export default LocationInfo;
+ 

@@ -23,10 +23,11 @@ const Dashboard = () => {
     const markers = projects.map(project => ({
         name: project.projectName,
         latitude: project.locationInfo.latitude,
-        longitude: project.locationInfo.longitude
+        longitude: project.locationInfo.longitude,
+        area: project.locationInfo.affectedArea // Add affectedArea as radius in meters
     }));
     setMapMarkers(markers);
-}, [projects]);
+  }, [projects]);
 
   const getStatusDotColor = (status) => {
     switch (status) {
@@ -103,39 +104,11 @@ const Dashboard = () => {
           </table>
         </div>
         <div className="relative shadow-md sm:rounded-lg mt-6 w-1/2">
-                    <Map markers={mapMarkers} zoomLevel={12} width="100%" height="60vh" />
-                </div>
+          <Map markers={mapMarkers} zoomLevel={16} width="100%" height="60vh" />
+        </div>
       </main>
     </div>
   );
 };
 
 export default Dashboard;
-
-
-
- // const host = 'http://localhost:3000';
-    //   const getAllProjects = async () => {
-    //     let url = `${host}/api/projects/fetchAllProjects`;
-    //     const response = await fetch(url, {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "auth-token": localStorage.getItem('authToken')
-    //         }
-    //     });
-    //     let json = await response.json();
-    //     setProjects(json);
-    //     console.log(json)
-    // };
-
-    // Dummy data for ongoing projects
-  // const projects = [
-  //   { name: 'Project Alpha', category: 'Software', location: 'New York', status: 'In Progress' },
-  //   { name: 'Project Beta', category: 'Infra', location: 'San Francisco', status: 'Completed' },
-  //   { name: 'Project Gamma', category: 'Software', location: 'Chicago', status: 'Pending' },
-  //   { name: 'Project Delta', category: 'Consulting', location: 'Austin', status: 'In Progress' },
-  //   { name: 'Project Epsilon', category: 'Software', location: 'Seattle', status: 'Not Started' },
-  //   { name: 'Project Zeta', category: 'Software', location: 'Los Angeles', status: 'In Progress' },
-  //   // Add more projects if needed to test the scrolling functionality
-  // ];

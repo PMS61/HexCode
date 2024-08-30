@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './style.css';
 import BasicInfo from './BasicInfo';
 import LocationInfo from './LocationInfo';
 import Timeline from './Timeline';
-import { useNavigate } from 'react-router-dom';
 
-
-const MultiStepForm = () => {
-  const navigate = useNavigate();
+const MultiStepForm = ({ onClose }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectName: '',
@@ -33,30 +29,32 @@ const MultiStepForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name in formData.locationInfo) {
-      setFormData({
-        ...formData,
-        locationInfo: {
-          ...formData.locationInfo,
+  
+    setFormData((prevFormData) => {
+      if (name in prevFormData.locationInfo) {
+        return {
+          ...prevFormData,
+          locationInfo: {
+            ...prevFormData.locationInfo,
+            [name]: value
+          }
+        };
+      } else {
+        return {
+          ...prevFormData,
           [name]: value
-        }
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value
-      });
-    }
+        };
+      }
+    });
   };
+  
+  
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
-
     try {
       const response = await axios.post('http://localhost:3000/api/projects/addProject', formData, {
         headers: {
@@ -68,8 +66,9 @@ const MultiStepForm = () => {
     } catch (error) {
       console.error('Error creating project:', error.response?.data || error.message);
     }
-    navigate('/dashboard');
+    onClose();  // Close modal after submission
   };
+
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -97,7 +96,7 @@ const MultiStepForm = () => {
         <div className="button-group">
           {step > 1 && <button type="button" className="secondary" onClick={prevStep}>Previous</button>}
           {step < 3 && <button type="button" className="primary" onClick={nextStep}>Next</button>}
-          {step === 3 && <button type="submit" className="primary">Submit</button>}
+          {step === 3 && <button type="submit" className="primary" >Submit</button>}
         </div>
       </form>
     </div>
