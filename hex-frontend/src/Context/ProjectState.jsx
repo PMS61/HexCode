@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProjectContext from "./projectContext";
-import { set } from "mongoose";
+
 
 const ProjectState = (props) => {
     const host = 'http://localhost:3000';
@@ -20,7 +20,7 @@ const ProjectState = (props) => {
         });
         let json = await response.json();
         setProjects(json);
-        return json;
+        console.log(json)
     };
 
     // Fetch a specific project by ID

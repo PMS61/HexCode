@@ -1,22 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState , useContext , useEffect} from 'react';
 import { Menu, Grid, PieChart } from 'lucide-react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
+
+import { useNavigate } from 'react-router-dom';
+import projectContext from '../../Context/projectContext';
+
+
 
 const Dashboard = () => {
   
   
 
+  const context = useContext(projectContext)
+  const { projects, setProjects, getAllProjects } = context
+  // const [projects, setProjects] = useState([])
+  let navigate = useNavigate()
+  useEffect(() => {
+    if (localStorage.getItem('authToken')) {
+    // const host = 'http://localhost:3000';
+    //   const getAllProjects = async () => {
+    //     let url = `${host}/api/projects/fetchAllProjects`;
+    //     const response = await fetch(url, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "auth-token": localStorage.getItem('authToken')
+    //         }
+    //     });
+    //     let json = await response.json();
+    //     setProjects(json);
+    //     console.log(json)
+    // };
+    getAllProjects()
+    }
+    else{
+      navigate('/login')
+    }
+
+  }, []);
   // Dummy data for ongoing projects
-  const projects = [
-    { name: 'Project Alpha', category: 'Software', location: 'New York', status: 'In Progress' },
-    { name: 'Project Beta', category: 'Infra', location: 'San Francisco', status: 'Completed' },
-    { name: 'Project Gamma', category: 'Software', location: 'Chicago', status: 'Pending' },
-    { name: 'Project Delta', category: 'Consulting', location: 'Austin', status: 'In Progress' },
-    { name: 'Project Epsilon', category: 'Software', location: 'Seattle', status: 'Not Started' },
-    { name: 'Project Zeta', category: 'Software', location: 'Los Angeles', status: 'In Progress' },
-    // Add more projects if needed to test the scrolling functionality
-  ];
+  // const projects = [
+  //   { name: 'Project Alpha', category: 'Software', location: 'New York', status: 'In Progress' },
+  //   { name: 'Project Beta', category: 'Infra', location: 'San Francisco', status: 'Completed' },
+  //   { name: 'Project Gamma', category: 'Software', location: 'Chicago', status: 'Pending' },
+  //   { name: 'Project Delta', category: 'Consulting', location: 'Austin', status: 'In Progress' },
+  //   { name: 'Project Epsilon', category: 'Software', location: 'Seattle', status: 'Not Started' },
+  //   { name: 'Project Zeta', category: 'Software', location: 'Los Angeles', status: 'In Progress' },
+  //   // Add more projects if needed to test the scrolling functionality
+  // ];
 
   // Function to determine the color of the status dot
   const getStatusDotColor = (status) => {
@@ -58,13 +90,13 @@ const Dashboard = () => {
       className="bg-white border-b hover:bg-gray-100" // Add hover:bg-gray-100
     >
       <td className="px-6 py-4 flex items-center">
-        <span className={`w-3 h-3 rounded-full ${getStatusDotColor(project.status)} sm:hidden me-2`}></span>
-        {project.name}
+        {/* <span className={`w-3 h-3 rounded-full ${getStatusDotColor(project.status)} sm:hidden me-2`}></span> */}
+        {project.projectName}
       </td>
-      <td className="px-6 py-4">{project.category}</td>
-      <td className="px-6 py-4">{project.location}</td>
+      <td className="px-6 py-4">{project.projectType}</td>
+      <td className="px-6 py-4">{project.projectId}</td>
       <td className="px-6 py-4 hidden sm:table-cell">
-        <span
+        {/* <span
           className={`px-2 py-1 text-xs font-semibold rounded-full ${
             project.status === 'Completed' ? 'bg-green-100 text-green-800' :
             project.status === 'In Progress' ? 'bg-yellow-100 text-yellow-800' :
@@ -72,8 +104,8 @@ const Dashboard = () => {
             'bg-gray-100 text-gray-800'
           }`}
         >
-          {project.status}
-        </span>
+         
+        </span> */}
       </td>
     </tr>
   ))}
