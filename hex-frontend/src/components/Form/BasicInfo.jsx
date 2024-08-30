@@ -20,6 +20,7 @@ const BasicInfo = ({ formData, handleChange }) => {
           <option value="Infrastructure">Infrastructure</option>
           <option value="Maintenance">Maintenance</option>
           <option value="Emergency">Emergency</option>
+          <option value="Environment">Environment</option>
         </select>
       </div>
       <div className="form-group">
