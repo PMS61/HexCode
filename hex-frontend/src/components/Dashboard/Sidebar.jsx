@@ -1,11 +1,19 @@
 import React from 'react'
 import { useState } from 'react';
 import { Menu, Grid, PieChart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  let navigate = useNavigate();
+
+  const handleSignOut = () => {
+      localStorage.removeItem('authToken');
+      navigate('/login'); // Redirect to the login page or another route
+  };
+
   
 
   
@@ -60,7 +68,9 @@ const Sidebar = () => {
                           <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Earnings</a>
                         </li>
                         <li>
-                          <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                          <button onClick={handleSignOut}>
+                          <a href="/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
+                          </button>
                         </li>
                       </ul>
                     </div>

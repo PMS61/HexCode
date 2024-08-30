@@ -2,10 +2,12 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import projectContext from '../../Context/projectContext';
+import Map from './Map';
 
 const Dashboard = () => {
   const context = useContext(projectContext);
   const { projects, setProjects, getAllProjects } = context;
+  const [mapMarkers, setMapMarkers] = useState([]);
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -15,6 +17,16 @@ const Dashboard = () => {
       navigate('/login');
     }
   }, []);
+
+  useEffect(() => {
+    // Transform the projects data into map marker format
+    const markers = projects.map(project => ({
+        name: project.projectName,
+        latitude: project.locationInfo.latitude,
+        longitude: project.locationInfo.longitude
+    }));
+    setMapMarkers(markers);
+}, [projects]);
 
   const getStatusDotColor = (status) => {
     switch (status) {
@@ -90,6 +102,9 @@ const Dashboard = () => {
             </tbody>
           </table>
         </div>
+        <div className="relative shadow-md sm:rounded-lg mt-6 w-1/2">
+                    <Map markers={mapMarkers} zoomLevel={12} width="100%" height="60vh" />
+                </div>
       </main>
     </div>
   );

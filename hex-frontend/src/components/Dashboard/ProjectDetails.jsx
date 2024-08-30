@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import projectContext from "../../Context/projectContext";
-import Map from "./Map";
+import MapNew from "./MapNew";
 
 const ProjectDetails = () => {
   const { projectId } = useParams(); // Extract projectId from the URL
@@ -81,7 +81,7 @@ const ProjectDetails = () => {
                 <br /> Address: {project.locationInfo.specificAddress}
                 <br /> Area: {project.locationInfo.affectedArea} sq. meters
               </p>
-              <Map
+              <MapNew
                 latitude={project.locationInfo.latitude}
                 longitude={project.locationInfo.longitude}
                 locationName={project.locationInfo.specificAddress}
