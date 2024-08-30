@@ -74,11 +74,13 @@ export default function Login() {
                   />
                 </div>
                 <div className='flex justify-center align-middle'>
+                  <Link to="/dashboard">
                   <button 
                     type="submit" 
                     className="btn w-36 md:btn-wide btn-primary mt-4 px-0">
                     Sign in
                   </button>
+                  </Link>
                 </div>
                 <p className="text-sm font-light text-gray-500">
                   Don’t have an account yet? 
