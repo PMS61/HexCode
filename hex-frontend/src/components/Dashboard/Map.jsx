@@ -68,9 +68,9 @@ export default Map;
 /*
 Use the map as:
     <Map 
-        latitude={latitude} 
-        longitude={longitude} 
-        locationName={locationName} 
+        locations={[{name: 'Name1', latitude: latitude1, Longitude: longitude1},
+                    {name: 'Name2', latitude: latitude2, Longitude: longitude2},
+                    ...]} 
         width={width} 
         height={height} 
     />
