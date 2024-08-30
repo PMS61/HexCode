@@ -3,61 +3,49 @@
 import React, { useState } from "react";
 
 function Cards() {
-  const [expandedCard, setExpandedCard] = useState(null);
+  
 
   const cardData = [
     {
-      title: "Bamboo Desk Organizer",
       description: "Keep your desk tidy and organized.",
-      image: "/placeholder.svg",
-      details:
-        "This bamboo desk organizer is the perfect solution to keep your workspace clutter-free. With its sleek and minimalist design, it blends seamlessly into any office decor.",
     },
     {
-      title: "Ergonomic Office Chair",
       description: "Improve your posture and comfort.",
-      image: "/placeholder.svg",
-      details:
-        "This ergonomic office chair is designed to provide superior support and comfort, helping you maintain good posture throughout the workday.",
     },
     {
-      title: "Wireless Charging Pad",
       description: "Charge your devices without the hassle.",
-      image: "/placeholder.svg",
-      details:
-        "This wireless charging pad allows you to conveniently charge your devices without the need for messy cables.",
     },
     {
-      title: "Minimalist Wall Shelves",
       description: "Declutter your space with these stylish shelves.",
-      image: "/placeholder.svg",
-      details:
-        "These minimalist wall shelves are the perfect solution to declutter your space and display your favorite items.",
+    },
+    {
+      description: "Keep your desk tidy and organized.",
+    },
+    {
+      description: "Improve your posture and comfort.",
+    },
+    {
+      description: "Charge your devices without the hassle.",
+    },
+    {
+      description: "Declutter your space with these stylish shelves.",
     },
   ];
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {cardData.map((card, index) => (
           <div
             key={index}
-            className="bg-gray-100 p-4 rounded-lg shadow-lg cursor-pointer"
-            onClick={() => setExpandedCard(index)}
+            className="bg-gray-100 p-4 rounded-lg shadow-lg cursor-pointer w-full h-72"
           >
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-48 object-cover rounded-lg"
-            />
-            <h3 className="mt-4 text-xl font-semibold">{card.title}</h3>
-            <p className="mt-2 text-gray-600">{card.description}</p>
-            <button className="mt-4 text-orange-500 underline">View More</button>
+            <p className="mt-2 text-xl text-gray-600">{card.description}</p>
           </div>
         ))}
       </div>
 
-      {expandedCard !== null && (
+      {/* {expandedCard !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
           onClick={() => setExpandedCard(null)}
@@ -82,7 +70,7 @@ function Cards() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

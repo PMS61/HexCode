@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     element: <Scheduler />
   },
   {
-    path: "/projectdetails",
+    path: "/projectdetails/:projectId",
     element: <ProjectDetails />
   }
 ]);
