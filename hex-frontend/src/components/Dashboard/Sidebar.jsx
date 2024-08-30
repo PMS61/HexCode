@@ -39,7 +39,7 @@ const Sidebar = () => {
                 <Menu className="w-6 h-6" />
               </button>
               <a href="" className="flex ms-2 md:me-24">
-              <img src="src/assets/logo.png" alt="Logo" className="h-8 w-8" />
+              <img src="/assets/logo.png" alt="Logo" className="h-8 w-8" />
                 <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">HexCode</span>
               </a>
             </div>
