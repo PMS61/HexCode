@@ -38,7 +38,7 @@ const ProjectState = (props) => {
     };
 
     // Add a new project
-    const addProject = async (project) => {
+    const addProject = async (project,onSuccess) => {
         const { 
             projectName, 
             projectId, 
@@ -79,6 +79,9 @@ const ProjectState = (props) => {
 
         const json = await response.json();
         setProjects([...projects, json]); // Adding the new project to state
+        if (onSuccess) {
+            onSuccess(); // Call the success callback
+        }
     };
 
     // Update a project

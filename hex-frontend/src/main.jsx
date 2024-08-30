@@ -16,6 +16,7 @@ import QueryForum from './components/QueryForum/QueryForum.jsx';
 import { Scheduler } from './components/Dashboard/scheduler.jsx';
 import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
+import LocationSearch from './components/Form/Search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/search",
+    element: <LocationSearch />,
   },
   {
     path: "/form",

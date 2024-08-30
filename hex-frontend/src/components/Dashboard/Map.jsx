@@ -16,15 +16,16 @@ const Map = ({ markers = [], zoomLevel = 12, width = '80%', height = '60vh' }) =
             }).addTo(mapRef.current);
         }
 
-        // Clear existing markers
+        // Clear existing markers and circles
         mapRef.current.eachLayer(layer => {
-            if (layer instanceof L.Marker) {
+            if (layer instanceof L.Marker || layer instanceof L.Circle) {
                 mapRef.current.removeLayer(layer);
             }
         });
 
-        // Add markers to the map
+        // Add markers and circles to the map
         markers.forEach(marker => {
+            // FontAwesome icon for marker
             const fontAwesomeIcon = L.divIcon({
                 className: 'fa-custom-icon',
                 html: '<i class="fas fa-map-marker-alt" style="font-size: 24px;"></i>',
@@ -33,10 +34,22 @@ const Map = ({ markers = [], zoomLevel = 12, width = '80%', height = '60vh' }) =
                 popupAnchor: [0, -24]
             });
 
+            // Add marker
             const markerInstance = L.marker([marker.latitude, marker.longitude], { icon: fontAwesomeIcon })
                 .addTo(mapRef.current)
                 .bindPopup(`<b>${marker.name}</b><br> Latitude: ${marker.latitude}, Longitude: ${marker.longitude}`)
                 .openPopup();
+
+            // Add circle around the marker
+            if (marker.area) {
+                const radius = Math.sqrt(marker.area / Math.PI); // Convert area to radius
+                const circle = L.circle([marker.latitude, marker.longitude], {
+                    color: 'blue',
+                    fillColor: '#3f7cba',
+                    fillOpacity: 0.2,
+                    radius: radius // radius is in meters
+                }).addTo(mapRef.current);
+            }
         });
 
         return () => {
