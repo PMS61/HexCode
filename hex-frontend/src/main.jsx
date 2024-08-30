@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import Login from './components/Login/Login.jsx';
-import Map from './components/Dashboard/Map.jsx';
+import MapNew from './components/Dashboard/MapNew.jsx';
 import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import Landing from './components/Landing/Landing.jsx';
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/map",
-    element: <Map />
+    element: <MapNew />
   },
   {
     path: "/queryforum",
