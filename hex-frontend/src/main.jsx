@@ -15,6 +15,7 @@ import Landing from './components/Landing/Landing.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
 import { Scheduler } from './components/Dashboard/scheduler.jsx';
 import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
+import ProjectState from './Context/ProjectState.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   <ProjectState>
     <RouterProvider router={router} />
+  </ProjectState>
   </StrictMode>,
 )
