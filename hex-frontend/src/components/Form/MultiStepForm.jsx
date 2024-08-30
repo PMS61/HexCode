@@ -4,9 +4,11 @@ import './style.css';
 import BasicInfo from './BasicInfo';
 import LocationInfo from './LocationInfo';
 import Timeline from './Timeline';
+import { useNavigate } from 'react-router-dom';
 
 
 const MultiStepForm = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectName: '',
@@ -52,6 +54,7 @@ const MultiStepForm = () => {
   const prevStep = () => setStep(step - 1);
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
     try {
@@ -65,6 +68,7 @@ const MultiStepForm = () => {
     } catch (error) {
       console.error('Error creating project:', error.response?.data || error.message);
     }
+    navigate('/dashboard');
   };
   const renderStep = () => {
     switch (step) {
