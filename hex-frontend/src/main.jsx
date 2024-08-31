@@ -12,7 +12,6 @@ import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
 import Scheduler from './components/Dashboard/scheduler.jsx';
-import ProjectDetails from './components/Dashboard/ProjectDetails/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
 import { LandingNew } from './components/LandingNew/LandingNew.jsx';
 import LocationSearch from './components/Form/Search.jsx';
