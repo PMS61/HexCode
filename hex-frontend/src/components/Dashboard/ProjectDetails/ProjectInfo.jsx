@@ -10,7 +10,9 @@ const ProjectInfo = () => {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    const selectedProject = projects.find((proj) => proj.projectId === projectId);
+    const selectedProject = projects.find(
+      (proj) => proj.projectId === projectId
+    );
     setProject(selectedProject);
   }, [projectId, projects]);
 
@@ -20,48 +22,47 @@ const ProjectInfo = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="bg-background rounded-lg border relative z-10 p-6">
-        <header className="border-b pb-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold">{project.projectName}</h1>
-              <p className="text-muted-foreground">{project.briefDescription}</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col items-end">
-                <p className="text-sm text-muted-foreground">Start Date</p>
-                <p className="font-medium">
-                  {new Date(project.proposedStartDate).toLocaleDateString()}
-                </p>
-              </div>
-              <div className="flex flex-col items-end">
-                <p className="text-sm text-muted-foreground">End Date</p>
-                <p className="font-medium">
-                  {new Date(project.estimatedCompletionDate).toLocaleDateString()}
-                </p>
-              </div>
-              <div className="flex flex-col items-end">
-                <p className="text-sm text-muted-foreground">Project Type</p>
-                <p className="font-medium">{project.projectType}</p>
-              </div>
-            </div>
-          </div>
-          <div className="mt-4 flex items-center gap-4">
-            <p>
-              Project ID: {project.projectId} <br />
-              Departments: {project.primaryDepartment}
-              {project.otherDepartments &&
-                project.otherDepartments.length > 0 &&
-                `, ${project.otherDepartments.join(", ")}`}{" "}
-              <br />
-              Project Manager: {project.projectManager}
-            </p>
-          </div>
-        </header>
-        <section className="mt-8">
-          <h2 className="text-xl font-bold">Project Goals</h2>
-          <p className="text-muted-foreground">{project.keyMilestones}</p>
-        </section>
+      <div className=" border-black rounded-lg border relative z-10 mx-4 my-2 pb-4">
+        <h1 className="px-6 py-4 font-semibold">Basic Project Information</h1>
+        <div className="w-full h-0.5 bg-black"></div>
+
+        {/* <p className="px-6 py-4">{project.briefDescription}</p> */}
+        <p className="px-6 py-4 font-light">
+          The Barfiwala Flyover was constructed in 2008 by the Maharashtra State
+          Road Development Corporation (MSRDC), originating from Juhu and
+          connecting with the north-south arms of the old Gokhale Bridge, which
+          has been in existence since 1960.
+        </p>
+
+        <h3 className="px-6 font-semibold">Project ID: {project.projectId}</h3>
+        <h3 className="px-6 font-semibold">
+          Departments: {project.primaryDepartment}
+          {project.otherDepartments &&
+            project.otherDepartments.length > 0 &&
+            `, ${project.otherDepartments.join(", ")}`}{" "}
+        </h3>
+        <h3 className="px-6 font-semibold">
+          Project Manager: {project.projectManager}
+        </h3>
+        <h3 className="px-6 font-semibold">
+          Project Type: {project.projectType}
+        </h3>
+
+        
+      </div>
+
+      <div className="border-black bg-white rounded-lg border relative z-10 mx-4 my-2 mt-10">
+        <h1 className="px-6 py-4 font-semibold">Project Goals and Deadlines</h1>
+        <div className="w-full h-0.5 bg-black"></div>
+
+        <p className="px-6 py-4 font-light">{project.keyMilestones}</p>
+        <p className="px-6 font-semibold">
+          Start Date: {new Date(project.proposedStartDate).toLocaleDateString()}
+        </p>
+        <p className="px-6 pb-4 font-semibold">
+          End Date:{" "}
+          {new Date(project.estimatedCompletionDate).toLocaleDateString()}
+        </p>
       </div>
     </div>
   );

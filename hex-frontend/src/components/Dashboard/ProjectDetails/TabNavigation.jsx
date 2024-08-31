@@ -30,7 +30,7 @@ const TabNavigation = () => {
           {/* Project Info Tab */}
           <li className="me-2">
             <button
-              onClick={() => setActiveTab("projectInfo")}
+              onClick={() => setActiveTab("projectInfo")} style={{fontFamily: "Poppins"}}
               className={`inline-flex items-center justify-center p-4 border-b-2 ${
                 activeTab === "projectInfo"
                   ? "text-blue-600 border-blue-600"
@@ -57,7 +57,7 @@ const TabNavigation = () => {
           {/* Project Location Tab */}
           <li className="me-2">
             <button
-              onClick={() => setActiveTab("projectLocation")}
+              onClick={() => setActiveTab("projectLocation")} style={{fontFamily: "Poppins"}}
               className={`inline-flex items-center justify-center p-4 border-b-2 ${
                 activeTab === "projectLocation"
                   ? "text-blue-600 border-blue-600"
@@ -108,8 +108,18 @@ const TabNavigation = () => {
               Data Share
             </button>
           </li>
-        </ul>
 
+          <li className="me-2">
+            <button
+              className={`p-4 border-b-2 ${"border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+              } rounded-t-lg group`}
+              aria-current="page"
+            >
+              ProjectName
+            </button>
+          </li>
+         
+        </ul>
         {/* Render the selected tab content */}
         <div className="mt-4">{renderContent()}</div>
       </div>
