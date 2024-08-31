@@ -129,7 +129,11 @@ export const LandingNew = () => {
             {
               imgSrc: "forum-icon.png",
               text: "Discussion forum with Intra department, inter department, and public form sections"
-            }
+            },
+            {
+              imgSrc: "bell-icon.png",
+              text: "Notification and Alert system delivers real-time updates, and critical alerts to users, ensuring they stay informed and can respond promptly to important events",
+            },
           ].map((feature, index) => (
             <div
               key={index}
