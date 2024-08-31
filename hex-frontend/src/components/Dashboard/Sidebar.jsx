@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, Grid, PieChart, Plus, Bell, User, LogOut } from 'lucide-react';
+import { Menu, Grid, PieChart, Plus, Bell, User, LogOut, Megaphone } from 'lucide-react'; // Import the Megaphone icon
 import { useNavigate, useLocation } from 'react-router-dom';
 import MultiStepForm from '../Form/MultiStepForm';
 import Modal from '../Form/Modal';
@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false); // Correctly defined state
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [notifications, setNotifications] = useState([
     { message: 'New comment on your post', date: '2024-08-31' },
     { message: 'Project deadline approaching', date: '2024-08-30' },
@@ -94,6 +94,12 @@ const Sidebar = () => {
                 <PieChart className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
                 <span className="flex-1 ms-3 whitespace-nowrap">Forum</span>
                 <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full">3</span>
+              </a>
+            </li>
+            <li>
+              <a href="/announcements" className="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100">
+                <Megaphone className="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" />
+                <span className="ms-3">Announcements</span>
               </a>
             </li>
             {isDashboard && (

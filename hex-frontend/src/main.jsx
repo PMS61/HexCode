@@ -13,10 +13,11 @@ import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import Landing from './components/Landing/Landing.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
-import { Scheduler } from './components/Dashboard/Scheduler.jsx';
+import { Scheduler } from './components/Dashboard/scheduler.jsx';
 import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
 import LocationSearch from './components/Form/Search.jsx';
+import AnnouncementPage from './components/Dashboard/Announcements.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/map",
     element: <MapNew />
+  },
+  {
+    path: "/announcements",
+    element: <AnnouncementPage />
   },
   {
     path: "/queryforum",
