@@ -70,9 +70,9 @@ export const Scheduler = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col md:flex-row">
+    <div className=" min-h-screen flex flex-col md:flex-row">
       <Sidebar />
-      <main className="flex-1 ml-0 md:ml-64 p-4 pt-16">
+      <main className="flex-1 ml-0  p-4 pt-16">
         <div className="bg-white p-6 rounded-lg border shadow-sm">
           <h3 className="font-bold text-2xl mb-2" style={{ fontFamily: "Montserrat" }}>
             Schedule a Meeting
