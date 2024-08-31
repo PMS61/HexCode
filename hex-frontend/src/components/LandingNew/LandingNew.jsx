@@ -21,7 +21,7 @@ export const LandingNew = () => {
     <>
       <section id="hero" className="relative py-10 px-5 md:px-10">
         <div className="absolute right-0 top-20 flex flex-col gap-5 justify-center items-center w-full md:w-auto">
-          <img src="/assets/logo.png" alt="Logo" className="w-1/2" />
+          <img src="/assets/logo.png" alt="Logo" className="w-4/6" />
           <h2 className="text-white font-black text-4xl text-center" style={{ fontFamily: "Inter" }}>
              UrbanConnect
           </h2>
