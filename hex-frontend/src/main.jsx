@@ -68,10 +68,6 @@ const router = createBrowserRouter([
   },
   {
     path: "/projectdetails/:projectId",
-    element: <ProjectDetails />
-  },
-  {
-    path: "/projectdetails",
     element: <TabNavigation />
   }
 ]);
