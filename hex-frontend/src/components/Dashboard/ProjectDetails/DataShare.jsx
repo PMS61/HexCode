@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Dropzone, FileMosaic } from "@files-ui/react";
+import { Download,Eye } from 'lucide-react'; // Import the Download icon
 
 export default function DataShare() {
   const [files, setFiles] = useState([]);
@@ -15,7 +16,7 @@ export default function DataShare() {
   };
 
   const handleSubmit = () => {
-    setSubmittedFiles(files);
+    setSubmittedFiles([...submittedFiles, ...files]); // Add new files to the existing list
     setFiles([]);
   };
 
@@ -66,7 +67,7 @@ export default function DataShare() {
 
       {submittedFiles.length > 0 && (
         <div className="mt-8 w-full max-w-4xl">
-          <h2 className="text-xl font-bold mb-4">Submitted Files</h2>
+          <h2 className="text-xl font-bold mb-4">Shared Files</h2>
           <ul className="space-y-4">
             {submittedFiles.map((file) => {
               const objectURL = createObjectURL(file);
@@ -89,19 +90,29 @@ export default function DataShare() {
                       Your browser does not support the video tag.
                     </video>
                   )}
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900">{file.name}</p>
-                    {objectURL && (
-                      <a
-                        href={objectURL}
-                        download={file.name}
-                        className="text-indigo-600 hover:text-indigo-800"
-                        onClick={() => URL.revokeObjectURL(objectURL)}
-                      >
-                        Download
-                      </a>
-                    )}
-                  </div>
+<div className="flex-1 flex justify-between items-center overflow-hidden">
+  <p className="text-sm font-medium text-gray-900 truncate">{file.name}</p>
+  <div className="flex items-center space-x-4">
+    <a
+      href={objectURL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-400 hover:text-gray-800 flex items-center"
+      onClick={() => URL.revokeObjectURL(objectURL)}
+    >
+      <Eye className="w-6 h-6" />
+    </a>
+    <a
+      href={objectURL}
+      download={file.name}
+      className="text-gray-400 hover:text-gray-800 flex items-center"
+      onClick={() => URL.revokeObjectURL(objectURL)}
+    >
+      <Download className="w-6 h-6" />
+    </a>
+  </div>
+</div>
+
                 </li>
               );
             })}
