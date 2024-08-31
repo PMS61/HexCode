@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import projectContext from "../../Context/projectContext";
-import MapNew from "./MapNew";
+import Sidebar from "../Sidebar";
+import projectContext from "../../../Context/projectContext";
+import MapNew from "../MapNew";
 
 const ProjectDetails = () => {
   const { projectId } = useParams(); // Extract projectId from the URL

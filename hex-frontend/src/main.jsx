@@ -13,11 +13,12 @@ import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import Landing from './components/Landing/Landing.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
-import { Scheduler } from './components/Dashboard/scheduler.jsx';
-import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
+import Scheduler from './components/Dashboard/ProjectDetails/scheduler.jsx';
+import ProjectDetails from './components/Dashboard/ProjectDetails/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
 import LocationSearch from './components/Form/Search.jsx';
-import AnnouncementPage from './components/Dashboard/Announcements.jsx';
+import Announcements from './components/Dashboard/ProjectDetails/Announcements.jsx';
+import DataShare from './components/Dashboard/ProjectDetails/DataShare.jsx';
 
 const router = createBrowserRouter([
   {
@@ -45,12 +46,16 @@ const router = createBrowserRouter([
     element: <MultiStepForm />
   },
   {
+    path: "/datashare",
+    element: <DataShare />
+  },
+  {
     path: "/map",
     element: <MapNew />
   },
   {
     path: "/announcements",
-    element: <AnnouncementPage />
+    element: <Announcements />
   },
   {
     path: "/queryforum",

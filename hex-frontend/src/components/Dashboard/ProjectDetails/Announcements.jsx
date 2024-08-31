@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import projectContext from '../../Context/projectContext';
-import Sidebar from './Sidebar'; // Import the Sidebar component
+import projectContext from '../../../Context/projectContext';
+import Sidebar from '../Sidebar'; // Import the Sidebar component
 
 const Announcements = () => {
   const [selectedProject, setSelectedProject] = useState('');
