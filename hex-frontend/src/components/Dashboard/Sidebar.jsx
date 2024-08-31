@@ -43,7 +43,7 @@ const Sidebar = () => {
               </button>
               <Link to="/" className="flex ms-2 md:me-24">
                 <img src="/assets/logo.png" alt="Logo" className="h-8 w-8" />
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">UrbanConnect</span>
+                <span className="self-center text-xl font-semibold ml-1 sm:text-2xl whitespace-nowrap">UrbanConnect</span>
               </Link>
             </div>
             <div className="flex items-center">

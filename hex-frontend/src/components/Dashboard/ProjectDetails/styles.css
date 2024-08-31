@@ -96,3 +96,174 @@
     margin-bottom: 20px;
   }
   
+  .modal-content {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+  }
+  
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* styles.css */
+
+/* General button styling */
+.button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  .button:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  
+  /* Styling for modal */
+  .modal-content {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+  }
+  
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Button styling inside modal */
+  .modal-button {
+    background-color: #007bff; /* Primary color for Save button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  .modal-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  .modal-button:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  /* Cancel button styling inside modal */
+  .cancel-button {
+    background-color: #dc3545; /* Red color for Cancel button */
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333; /* Darker shade for hover effect */
+  }
+
+  /* styles.css */
+
+/* General button styling */
+.button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  .button:focus {
+    outline: none; /* Remove the default focus outline */
+  }
+  
+ /* Ensure this is applied to the timeline node container */
+.vertical-timeline-element {
+    position: relative; /* Required for positioning child elements */
+}
+
+/* Style for the button */
+.add-event-button {
+    background-color: transparent; /* Transparent background */
+    color: #fff; /* Color of the plus sign */
+    border-radius: 50%; /* Circular button */
+    width: 60px; /* Button width */
+    height: 60px; /* Button height */
+    font-size: 60px; /* Larger plus sign */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute; /* Positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    z-index: 1; /* Ensure it is on top */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+  .add-event-button:hover {
+    background-color: #007bff; /* Primary color on hover */
+    color: #fff; /* White color on hover */
+  }
+
+
+  /* Styling for modal buttons */
+  .modal-button {
+    background-color: #007bff; /* Primary color */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+  }
+  
+  .cancel-button {
+    background-color: #dc3545; /* Danger color for cancel */
+  }
+  
+  .cancel-button:hover {
+    background-color: #c82333; /* Darker shade for cancel */
+  }
+  
+  /* Modal styling */
+  .modal-content {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  
