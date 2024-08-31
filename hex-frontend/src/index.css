@@ -16,6 +16,6 @@
     justify-content: center;
 }
 
-h1, h2, h3, h4, p{
+h1, h2, h3, h4, p, button{
     font-family: "Poppins", sans-serif;
 }
