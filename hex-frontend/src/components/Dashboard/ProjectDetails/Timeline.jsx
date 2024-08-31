@@ -15,14 +15,6 @@ Modal.setAppElement('#root');
 // Main Timeline component
 export default function Timeline({ startDateProp, endDateProp }) {
   const [timelineData, setTimelineData] = useState([
-    // Initial timeline data
-    {
-      type: "work",
-      date: "01/01/2011 - present",
-      title: "Creative Director",
-      subtitle: "Miami, FL",
-      description: "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -113,7 +105,7 @@ export default function Timeline({ startDateProp, endDateProp }) {
         {/* Fixed "End" node */}
         <VerticalTimelineElement
           iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-          date={endDate.toLocaleDateString('en-GB')}
+          date="{endDate.toLocaleDateString('en-GB')}"
           contentStyle={{ background: "rgb(16, 204, 82)", color: "#000" }}
           icon={<></>}
         >
