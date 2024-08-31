@@ -25,8 +25,9 @@ const ProjectDetails = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Sidebar />
-      <div className="bg-background rounded-lg border ml-0 sm:ml-64 p-4 pt-24">
+      {/* Increase z-index of Sidebar and Navbar */}
+      <Sidebar className="z-50" /> 
+      <div className="bg-background rounded-lg border ml-0 sm:ml-64 p-4 pt-24 relative z-10">
         <header className="p-6 border-b">
           <div className="flex items-center justify-between">
             <div>
@@ -75,7 +76,7 @@ const ProjectDetails = () => {
           </section>
           <section>
             <h2 className="text-xl font-bold">Location</h2>
-            <div className="aspect-[4/3] w-full">
+            <div className="aspect-[4/3] w-full relative z-0">
               <p className="text-muted-foreground">
                 Ward No: {project.locationInfo.wardNo}
                 <br /> Address: {project.locationInfo.specificAddress}
@@ -88,6 +89,7 @@ const ProjectDetails = () => {
                 zoomLevel={16}
                 width="80%"
                 height="60vh"
+                className="relative z-0"
               />
             </div>
           </section>
