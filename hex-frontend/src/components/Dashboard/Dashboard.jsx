@@ -40,8 +40,8 @@ const Dashboard = () => {
     }
   };
 
-  const handleRowClick = (projectId) => {
-    navigate(`/projectdetails/${projectId}`);
+  const handleRowClick = (_id) => {
+    navigate(`/projectdetails/${_id}`);
   };
 
   const getProjectStatus = (project) => {
@@ -78,7 +78,7 @@ const Dashboard = () => {
                 const status = getProjectStatus(project);
                 return (
                   <tr key={index} 
-                  onClick={() => handleRowClick(project.projectId)}
+                  onClick={() => handleRowClick(project._id)}
                   className="bg-white border-b hover:bg-gray-100" >
                     <td className="px-2 sm:px-6 py-2 sm:py-4 flex items-center text-xs sm:text-sm">
                       <span className={`w-3 h-3 rounded-full ${getStatusDotColor(status)} sm:hidden me-2`}></span>

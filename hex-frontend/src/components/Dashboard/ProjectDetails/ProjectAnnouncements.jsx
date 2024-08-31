@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';  // Import useParams from react-router-dom
 import projectContext from '../../../Context/projectContext';
 
 const ProjectAnnouncements = () => {
-  const [selectedProject, setSelectedProject] = useState('');
+  const [header, setHeader] = useState(''); // State for announcement header
   const [content, setContent] = useState('');
   const context = useContext(projectContext);
   const { projects, getAllProjects } = context;
   const [announcements, setAnnouncements] = useState([]);
 
+  const { projectId } = useParams(); // Use useParams to get the project ID from the URL
+
+  // useEffect to fetch all projects
   useEffect(() => {
     const fetchProjects = async () => {
       if (localStorage.getItem('authToken')) {
@@ -23,38 +27,83 @@ const ProjectAnnouncements = () => {
     };
 
     fetchProjects();
-  }, [getAllProjects]);
+  }, []); // Dependency array is empty to avoid infinite loop
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newAnnouncement = {
-      user: 'Current User', // Replace with the logged-in user's name
-      projectName: selectedProject,
-      time: new Date().toLocaleString(),
-      content: content,
+  // useEffect to fetch announcements for a specific project
+  useEffect(() => {
+    const fetchAnnouncements = async () => {
+      if (localStorage.getItem('authToken')) {
+        try {
+          const response = await fetch(`http://localhost:3000/api/announcements/${projectId}/fetchAll`, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'auth-token': localStorage.getItem('authToken'),  // Include the auth token in headers
+            },
+          });
+
+          if (response.ok) {
+            const data = await response.json();
+            setAnnouncements(data);
+          } else {
+            console.error('Failed to fetch announcements');
+          }
+        } catch (error) {
+          console.error('Error fetching announcements:', error);
+        }
+      }
     };
-    setAnnouncements([newAnnouncement, ...announcements]);
-    setSelectedProject('');
-    setContent('');
+
+    fetchAnnouncements();
+  }, [projectId]); // Only run when projectId changes
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (localStorage.getItem('authToken')) {
+      try {
+        const response = await fetch(`http://localhost:3000/api/announcements/${projectId}/add`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('authToken'),  // Include the auth token in headers
+          },
+          body: JSON.stringify({
+            header: header,  // Pass the header from state
+            content: content,
+          }),
+        });
+
+        if (response.ok) {
+          const newAnnouncement = await response.json();
+          setAnnouncements([newAnnouncement, ...announcements]);
+          setHeader(''); // Reset the header field after submission
+          setContent(''); // Reset the content field after submission
+        } else {
+          console.error('Failed to create announcement');
+        }
+      } catch (error) {
+        console.error('Error creating announcement:', error);
+      }
+    }
   };
 
   return (
     <div className="flex flex-col md:flex-row">
       <main className="flex-1 p-8 bg-white min-h-screen">
-        <h1 className="text-2xl font-bold mb-4">Announcements</h1>
+        <h1 className="text-2xl font-bold mb-4">Announcements for Project {projectId}</h1>
         <form onSubmit={handleSubmit} className="mb-8">
           <div className="mb-4">
-            <label htmlFor="projectHeader" className="block text-sm font-medium text-gray-700">
-              Project Header
+            <label htmlFor="header" className="block text-sm font-medium text-gray-700">
+              Announcement Header
             </label>
             <input
-              id="projectHeader"
-              name="projectHeader"
+              id="header"
+              name="header"
               type="text"
-              value={selectedProject}
-              onChange={(e) => setSelectedProject(e.target.value)}
+              value={header}
+              onChange={(e) => setHeader(e.target.value)}
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Enter project header"
+              placeholder="Enter announcement header"
             />
           </div>
 
@@ -85,8 +134,10 @@ const ProjectAnnouncements = () => {
         <ul className="space-y-4">
           {announcements.map((announcement, index) => (
             <li key={index} className="p-4 bg-gray-100 rounded-lg shadow-sm">
+              {/* Add header in bold */}
+              <p className="text-lg font-bold text-gray-700">{announcement.header}</p>
               <p className="text-sm text-gray-500">
-                <strong>{announcement.user}</strong> posted in <strong>{announcement.projectName}</strong> at {announcement.time}
+                <strong>User</strong> posted at {new Date(announcement.createdAt).toLocaleString()}
               </p>
               <p className="mt-2">{announcement.content}</p>
             </li>
