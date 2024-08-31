@@ -23,7 +23,7 @@ const ProjectLocation = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="bg-white border-black rounded-lg border relative z-10 mx-4 p-6">
+      <div className="bg-white border-black rounded-lg border relative z-10 mx-4 p-4">
         <section>
           <h2 className="text-xl font-bold">Location</h2>
           <div className="aspect-[4/3] w-full relative z-0 mt-4">
@@ -37,7 +37,7 @@ const ProjectLocation = () => {
               longitude={locationInfo.longitude}
               locationName={locationInfo.specificAddress}
               zoomLevel={16}
-              width="80%"
+              width="100%"
               height="60vh"
               className="relative z-0"
             />
