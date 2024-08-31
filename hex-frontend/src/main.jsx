@@ -11,11 +11,14 @@ import MapNew from './components/Dashboard/MapNew.jsx';
 import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
-import { Scheduler } from './components/Dashboard/Scheduler.jsx';
-import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
+import Scheduler from './components/Dashboard/scheduler.jsx';
+import ProjectDetails from './components/Dashboard/ProjectDetails/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
 import { LandingNew } from './components/LandingNew/LandingNew.jsx';
 import LocationSearch from './components/Form/Search.jsx';
+import Announcements from './components/Dashboard/Announcements.jsx';
+import DataShare from './components/Dashboard/ProjectDetails/DataShare.jsx';
+import TabNavigation from './components/Dashboard/ProjectDetails/tabNavigation.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,8 +46,16 @@ const router = createBrowserRouter([
     element: <MultiStepForm />
   },
   {
+    path: "/datashare",
+    element: <DataShare />
+  },
+  {
     path: "/map",
     element: <MapNew />
+  },
+  {
+    path: "/announcements",
+    element: <Announcements />
   },
   {
     path: "/queryforum",
@@ -57,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/projectdetails/:projectId",
     element: <ProjectDetails />
+  },
+  {
+    path: "/projectdetails",
+    element: <TabNavigation />
   }
 ]);
 

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@files-ui/react": "^1.2.4",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@react-google-maps/api": "^2.19.3",
     "axios": "^1.7.5",

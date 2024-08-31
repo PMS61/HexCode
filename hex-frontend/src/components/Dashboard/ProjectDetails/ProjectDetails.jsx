@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import projectContext from "../../Context/projectContext";
-import MapNew from "./MapNew";
+import Sidebar from "../Sidebar";
+import projectContext from "../../../Context/projectContext";
+import MapNew from "../MapNew";
 
 const ProjectDetails = () => {
   const { projectId } = useParams(); // Extract projectId from the URL
@@ -25,9 +25,8 @@ const ProjectDetails = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      {/* Increase z-index of Sidebar and Navbar */}
-      <Sidebar className="z-50" /> 
-      <div className="bg-background rounded-lg border ml-0 sm:ml-64 p-4 pt-24 relative z-10">
+      
+      <div className="bg-background rounded-lg border relative z-10">
         <header className="p-6 border-b">
           <div className="flex items-center justify-between">
             <div>

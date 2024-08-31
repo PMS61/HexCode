@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 // availaible routes (Routes are handled through express-router)
 app.use('/api/auth' , require ('./routes/auth'))
 app.use('/api/projects' , require ('./routes/project'))
+app.use('/api/announcements' , require ('./routes/announcement'))
 
 
 app.listen(port, () => {

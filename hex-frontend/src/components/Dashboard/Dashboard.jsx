@@ -103,8 +103,8 @@ const Dashboard = () => {
             </tbody>
           </table>
         </div>
-        <div className="relative shadow-md sm:rounded-lg mt-6 w-1/2">
-          <Map markers={mapMarkers} zoomLevel={16} width="100%" height="60vh" />
+        <div className="relative shadow-md sm:rounded-lg mt-6 w-full -z-0">
+          <Map markers={mapMarkers} zoomLevel={12} width="100%" height="60vh" />
         </div>
       </main>
     </div>
