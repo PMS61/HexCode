@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
-import construction from "../../assets/construction.png";
 import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
 import Cards from "./Cards"; // Import the Cards component
@@ -18,7 +16,7 @@ function Landing() {
     <div>
       <header className="bg-gray-800 text-white p-4 shadow-md sticky top-0 z-50">
         <div className="flex justify-between items-center">
-          <img src={logo} alt="logo" className="h-16 w-auto" />
+          <img src="/assets/logo.png" alt="logo" className="h-16 w-auto" />
 
           <nav className="hidden md:flex gap-6">
             {["Features", "UseCases", "Impact"].map((item) => (
@@ -74,7 +72,7 @@ function Landing() {
         id="impact"
         className="p-8 mb-8 rounded-lg shadow-lg h-screen"
         style={{
-          backgroundImage: `url(${construction})`,
+          backgroundImage: "url('/assets/construction.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

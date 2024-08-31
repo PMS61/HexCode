@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -11,12 +10,12 @@ import Login from './components/Login/Login.jsx';
 import MapNew from './components/Dashboard/MapNew.jsx';
 import SignUp from './components/Login/SignUp.jsx';
 import MultiStepForm from './components/Form/MultiStepForm.jsx';
-import Landing from './components/Landing/Landing.jsx';
 import QueryForum from './components/QueryForum/QueryForum.jsx';
-import { Scheduler } from './components/Dashboard/scheduler.jsx';
+import { Scheduler } from './components/Dashboard/Scheduler.jsx';
 import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
 import { LandingNew } from './components/LandingNew/LandingNew.jsx';
+import LocationSearch from './components/Form/Search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/search",
+    element: <LocationSearch />,
   },
   {
     path: "/form",
