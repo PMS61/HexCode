@@ -34,7 +34,7 @@ const ProjectAnnouncements = () => {
     const fetchAnnouncements = async () => {
       if (localStorage.getItem('authToken')) {
         try {
-          const response = await fetch(`http://localhost:3000/api/announcements/${projectId}/fetchAll`, {
+          const response = await fetch(`http://localhost:3000/api/announcements/${_id}/fetchAll`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

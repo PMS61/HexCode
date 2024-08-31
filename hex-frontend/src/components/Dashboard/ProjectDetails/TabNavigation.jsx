@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { FileText, MapPin, Share, Megaphone } from "lucide-react"; // Importing the updated icons from lucide-react
+import { FileText, MapPin, Share, Megaphone, Calendar } from "lucide-react"; // Importing the Calendar icon for Timeline
 import Sidebar from "../Sidebar";
 import DataShare from "./DataShare";
 import ProjectInfo from "./ProjectInfo";
 import ProjectLocation from "./ProjectLocation";
 import ProjectAnnouncements from "./ProjectAnnouncements";
+import Timeline from "./Timeline";
 
 const TabNavigation = () => {
   const [activeTab, setActiveTab] = useState("projectInfo");
@@ -15,6 +16,8 @@ const TabNavigation = () => {
         return <ProjectInfo />;
       case "projectLocation":
         return <ProjectLocation />;
+      case "timeline":
+        return <Timeline />;
       case "dataShare":
         return <DataShare />;
       case "projectAnnouncements":
@@ -32,7 +35,7 @@ const TabNavigation = () => {
           {/* Project Info Tab */}
           <li className="me-2">
             <button
-              onClick={() => setActiveTab("projectInfo")}
+              onClick={() => setActiveTab("projectInfo")} style={{fontFamily: "Poppins"}}
               className={`inline-flex items-center justify-center p-4 border-b-2 ${
                 activeTab === "projectInfo"
                   ? "text-blue-800 border-blue-800"
@@ -53,7 +56,7 @@ const TabNavigation = () => {
           {/* Project Location Tab */}
           <li className="me-2">
             <button
-              onClick={() => setActiveTab("projectLocation")}
+              onClick={() => setActiveTab("projectLocation")} style={{fontFamily: "Poppins"}}
               className={`inline-flex items-center justify-center p-4 border-b-2 ${
                 activeTab === "projectLocation"
                   ? "text-blue-800 border-blue-800"
@@ -113,8 +116,30 @@ const TabNavigation = () => {
               Project Announcements
             </button>
           </li>
+
+          {/* Timeline Tab */}
+          <li className="me-2">
+            <button
+              onClick={() => setActiveTab("timeline")}
+              className={`inline-flex items-center justify-center p-4 border-b-2 ${
+                activeTab === "timeline"
+                  ? "text-blue-800 border-blue-800"
+                  : "border-transparent hover:text-gray-600 hover:border-gray-400 dark:hover:text-gray-400"
+              } rounded-t-lg group`}
+            >
+              <Calendar
+                className={`w-5 h-5 me-2 ${
+                  activeTab === "timeline"
+                    ? "text-blue-800"
+                    : "text-gray-800 group-hover:text-gray-600 dark:text-gray-600 dark:group-hover:text-gray-400"
+                }`}
+              />
+              Timeline
+            </button>
+          </li>
         </ul>
 
+        {/* Render the selected tab content */}
         <div className="mt-4">{renderContent()}</div>
       </div>
     </div>

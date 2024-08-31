@@ -23,11 +23,11 @@ const ProjectLocation = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="bg-background rounded-lg border relative z-10 p-6">
+      <div className="bg-white border-black rounded-lg border relative z-10 mx-4 p-6">
         <section>
           <h2 className="text-xl font-bold">Location</h2>
           <div className="aspect-[4/3] w-full relative z-0 mt-4">
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-6">
               Ward No: {locationInfo.wardNo}
               <br /> Address: {locationInfo.specificAddress}
               <br /> Area: {locationInfo.affectedArea} sq. meters
