@@ -40,8 +40,8 @@ const Dashboard = () => {
     }
   };
 
-  const handleRowClick = (projectId) => {
-    navigate(`/projectdetails/${projectId}`);
+  const handleRowClick = (_id) => {
+    navigate(`/projectdetails/${_id}`);
   };
 
   const getProjectStatus = (project) => {

@@ -10,9 +10,7 @@ const ProjectInfo = () => {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    const selectedProject = projects.find(
-      (proj) => proj.projectId === projectId
-    );
+    const selectedProject = projects.find((proj) => proj._id === projectId);
     setProject(selectedProject);
   }, [projectId, projects]);
 
