@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import Sidebar from "../Sidebar"; // Ensure this path is correct
+import Sidebar from "./Sidebar"; // Ensure this path is correct
 
 export const Scheduler = () => {
   const [date, setDate] = useState(new Date());
@@ -72,7 +72,7 @@ export const Scheduler = () => {
   return (
     <div className=" min-h-screen flex flex-col md:flex-row">
       <Sidebar />
-      <main className="flex-1 ml-0  p-4 pt-16">
+      <main className="flex-1 ml-0 sm:ml-64 p-4 pt-24">
         <div className="bg-white p-6 rounded-lg border shadow-sm">
           <h3 className="font-bold text-2xl mb-2" style={{ fontFamily: "Montserrat" }}>
             Schedule a Meeting

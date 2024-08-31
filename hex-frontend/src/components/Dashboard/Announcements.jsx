@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import projectContext from '../../../Context/projectContext';
-import Sidebar from '../Sidebar'; // Import the Sidebar component
+import projectContext from '../../Context/projectContext';
+import Sidebar from './Sidebar'; // Import the Sidebar component
 
 const Announcements = () => {
   const [selectedProject, setSelectedProject] = useState('');
@@ -43,7 +43,7 @@ const Announcements = () => {
     <div className="flex flex-col md:flex-row">
       <Sidebar /> {/* Include the Sidebar component */}
       
-      <main className="flex-1 p-8 bg-white min-h-screen md:ml-64">
+      <main className="flex-1 p-8 bg-white min-h-screen md:ml-64 pt-24">
         <h1 className="text-2xl font-bold mb-4">Announcements</h1>
         <form onSubmit={handleSubmit} className="mb-8">
           <div className="mb-4">
