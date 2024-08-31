@@ -40,10 +40,10 @@ const Announcements = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <Sidebar /> {/* Include the Sidebar component */}
       
-      <main className="flex-1 p-8 ml-64 min-h-screen bg-white">
+      <main className="flex-1 p-8 bg-white min-h-screen md:ml-64">
         <h1 className="text-2xl font-bold mb-4">Announcements</h1>
         <form onSubmit={handleSubmit} className="mb-8">
           <div className="mb-4">
