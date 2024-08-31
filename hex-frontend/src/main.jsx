@@ -16,11 +16,12 @@ import QueryForum from './components/QueryForum/QueryForum.jsx';
 import { Scheduler } from './components/Dashboard/scheduler.jsx';
 import ProjectDetails from './components/Dashboard/ProjectDetails.jsx';
 import ProjectState from './Context/ProjectState.jsx';
+import { LandingNew } from './components/LandingNew/LandingNew.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing />,
+    element: <LandingNew />,
   },
   {
     path: "/login",
