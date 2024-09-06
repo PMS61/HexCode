@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", confirmPassword: "" });
-
+  const apiUrl = process.env.EXPRESS_API_URL
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -13,7 +13,7 @@ export default function SignUp() {
       return;
     }
 
-    const response = await fetch('http://localhost:3000/api/auth/createUser', {
+    const response = await fetch(`${apiUrl}/api/auth/createUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

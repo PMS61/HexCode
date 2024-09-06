@@ -5,6 +5,7 @@ import LocationInfo from './LocationInfo';
 import Timeline from './Timeline';
 
 const MultiStepForm = ({ onClose }) => {
+  const apiUrl = process.env.EXPRESS_API_URL
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectName: '',
@@ -56,7 +57,7 @@ const MultiStepForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/projects/addProject', formData, {
+      const response = await axios.post(`${apiUrl}/api/projects/addProject`, formData, {
         headers: {
           'Content-Type': 'application/json',
           'auth-token': `${localStorage.getItem('authToken')}`
