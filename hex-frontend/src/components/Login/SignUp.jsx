@@ -13,7 +13,7 @@ export default function SignUp() {
       return;
     }
 
-    const response = await fetch(`${apiUrl}/api/auth/createUser`, {
+    const response = await fetch(`https://hexcode-ponk.onrender.com/api/auth/createUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
