@@ -57,7 +57,7 @@ const MultiStepForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://hexcode-ponk.onrender.com/api/projects/addProject`, formData, {
+      const response = await axios.post(`${apiUrl}/api/projects/addProject`, formData, {
         headers: {
           'Content-Type': 'application/json',
           'auth-token': `${localStorage.getItem('authToken')}`
