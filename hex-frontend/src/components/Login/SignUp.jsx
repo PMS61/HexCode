@@ -12,8 +12,8 @@ export default function SignUp() {
       alert("Passwords do not match");
       return;
     }
-
-    const response = await fetch('http://localhost:3000/api/auth/createUser', {
+const apiURL = process.env.EXPRESS_API_URL;
+    const response = await fetch(`${apiURL}/api/auth/createUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

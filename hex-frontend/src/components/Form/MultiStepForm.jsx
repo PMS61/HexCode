@@ -26,7 +26,7 @@ const MultiStepForm = ({ onClose }) => {
     estimatedCompletionDate: '',
     keyMilestones: ''
   });
-
+const apiURL = process.env.EXPRESS_API_URL;
   const handleChange = (e) => {
     const { name, value } = e.target;
   
@@ -56,7 +56,7 @@ const MultiStepForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/projects/addProject', formData, {
+      const response = await axios.post(`${apiURL}/api/projects/addProject`, formData, {
         headers: {
           'Content-Type': 'application/json',
           'auth-token': `${localStorage.getItem('authToken')}`
