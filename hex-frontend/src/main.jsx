@@ -17,7 +17,7 @@ import { LandingNew } from './components/LandingNew/LandingNew.jsx';
 import LocationSearch from './components/Form/Search.jsx';
 import Announcements from './components/Dashboard/Announcements.jsx';
 import DataShare from './components/Dashboard/ProjectDetails/DataShare.jsx';
-import TabNavigation from './components/Dashboard/ProjectDetails/tabNavigation.jsx';
+import TabNavigation from './components/Dashboard/ProjectDetails/TabNavigation.jsx';
 
 const router = createBrowserRouter([
   {
