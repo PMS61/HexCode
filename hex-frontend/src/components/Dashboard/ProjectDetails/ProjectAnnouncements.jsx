@@ -35,7 +35,7 @@ const ProjectAnnouncements = () => {
     const fetchAnnouncements = async () => {
       if (localStorage.getItem('authToken')) {
         try {
-          const response = await fetch(`${apiURL}/api/announcements/${_id}/fetchAll`, {
+          const response = await fetch(`https://hexcode-zfv6.onrender.com/api/announcements/${_id}/fetchAll`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const ProjectAnnouncements = () => {
     e.preventDefault();
     if (localStorage.getItem('authToken')) {
       try {
-        const response = await fetch(`${apiURL}/api/announcements/${projectId}/add`, {
+        const response = await fetch(`https://hexcode-zfv6.onrender.com/api/announcements/${projectId}/add`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

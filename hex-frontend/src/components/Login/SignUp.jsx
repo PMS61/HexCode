@@ -13,7 +13,7 @@ export default function SignUp() {
       return;
     }
 const apiURL = process.env.EXPRESS_API_URL;
-    const response = await fetch(`${apiURL}/api/auth/createUser`, {
+    const response = await fetch(`https://hexcode-zfv6.onrender.com/api/auth/createUser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
