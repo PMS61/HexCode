@@ -3,7 +3,7 @@ import ProjectContext from "./projectContext";
 
 
 const ProjectState = (props) => {
-    const host = 'https://hexcode-zfv6.onrender.com/';
+    const host = 'https://hexcode-zfv6.onrender.com';
     let projectsInitial = [];
 
     const [projects, setProjects] = useState(projectsInitial);
