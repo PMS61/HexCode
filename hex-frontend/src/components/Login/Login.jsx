@@ -35,9 +35,9 @@ export default function Login() {
   };
 
   return (
-    <div style={{backgroundImage: "url(login-bg.png)", backgroundRepeat: "no-repeat", backgroundSize:"cover"}}>
-      <section className="text-gray-900">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div className="h-screen w-screen" style={{backgroundImage: "url(login-bg.png)", backgroundSize: "cover"}}>
+      <section className="text-gray-900 h-full flex justify-center items-center">
+        <div className="flex flex-col items-center w-screen justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="bg-slate-200 w-full rounded-lg shadow border-gray-300 sm:max-w-md">
             <div className="p-6 space-y-4 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
