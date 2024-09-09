@@ -8,7 +8,7 @@ const ProjectAnnouncements = () => {
   const context = useContext(projectContext);
   const { projects, getAllProjects } = context;
   const [announcements, setAnnouncements] = useState([]);
-  const apiURL = process.env.EXPRESS_API_URL;
+  const apiURL = import.meta.env.EXPRESS_API_URL;
 
   const { projectId } = useParams(); // Use useParams to get the project ID from the URL
 
@@ -35,7 +35,7 @@ const ProjectAnnouncements = () => {
     const fetchAnnouncements = async () => {
       if (localStorage.getItem('authToken')) {
         try {
-          const response = await fetch(`https://hexcode-zfv6.onrender.com/api/announcements/${_id}/fetchAll`, {
+          const response = await fetch(`${apiURL}/api/announcements/${_id}/fetchAll`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

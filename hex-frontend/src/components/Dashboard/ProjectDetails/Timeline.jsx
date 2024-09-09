@@ -105,7 +105,7 @@ export default function Timeline({ startDateProp, endDateProp }) {
         {/* Fixed "End" node */}
         <VerticalTimelineElement
           iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-          date="{endDate.toLocaleDateString('en-GB')}"
+          date={endDate.toLocaleDateString('en-GB')}
           contentStyle={{ background: "rgb(16, 204, 82)", color: "#000" }}
           icon={<></>}
         >
